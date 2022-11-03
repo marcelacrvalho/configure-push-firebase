@@ -9,7 +9,9 @@ class PushNotificationService {
     PushNotificationService._internal(this._customLocalNotification);
     
     static final PushNotificationService _singleton = PushNotificationService._internal(CustomLocalNotification());
-    factory PushNotificationService() => _singleton; // TODA VEZ QUE EU CHAMAR A MINHA FACTORY, ELA RECUPERA A INSTANCIA DO SIGLETON
+    factory PushNotificationService() => _singleton; /* TODA VEZ QUE EU CHAMAR A MINHA FACTORY, ELA RECUPERA A INSTANCIA DO SIGLETON 
+                                                     OU SEJA, EU TEREI UMA ÚNICA INSTANCIA DE PUSHNOTIFICATIONSERVICE ATÉ O FIM DA MINHA APLICAÇÃO */
+   
 
     Future<void> initialize() async {
     // COMO MINHA APLICAÇÃO APARECERÁ PARA O USUÁRIO, com BADGE, SOM, IMAGEM, etc  
