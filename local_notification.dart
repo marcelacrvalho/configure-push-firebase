@@ -1,15 +1,21 @@
 class CustomLocalNotification {
   late FlutterLocalNotificationsPlugin localNotifications;
-  late AndroidNotificationsDetails androidDetails;
+  late AndroidNotificationChannel channel;
   
   CustomLocalNotification() {
-    localNotifications = FlutterLocalNotificationsPlugin();
-    _setupNotification();
-    );
-  }
-  
-  _setupNotification() async{
-    await initializeNotifications();
+   channel = const AndroidNotificationChannel(
+     'high_importance_channel',
+     'High Importance Notifications'
+     description: 'Channel for Android Notifications',
+     importance: Importance.max,
+   );
+    
+    _configureAndroid().then(
+      (value) {
+        localNotifications = value;
+        initializeNofitications();
+      }
+    )
   }
   
   initializeNotifications() {
